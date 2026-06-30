@@ -1,20 +1,25 @@
 {
   "name": "invio-ride-backend",
   "version": "1.0.0",
-  "description": "Backend API for Invio Ride Taxi Booking Platform",
+  "description": "Backend API for Invio Ride",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },
-  "keywords": [
-    "taxi",
-    "uber",
-    "ride",
-    "kerala",
-    "invio"
-  ],
-  "author": "Invio Solutions",
-  "license": "MIT"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.7.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
 }
