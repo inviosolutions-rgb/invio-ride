@@ -16,5 +16,5 @@ router.get("/health", (_req, res) => {
 router.use("/auth", authRoutes);
 router.use("/rides", rideRoutes);
 router.use("/drivers", driverRoutes);
-
+router.use("/firebase", firebaseRoutes);
 export default router;
