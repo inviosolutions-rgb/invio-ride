@@ -1,7 +1,17 @@
+import dotenv from "dotenv";
 import app from "./app";
+import { connectDatabase } from "./config/database";
+
+dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚖 Invio Ride Backend running on port ${PORT}`);
-});
+async function startServer() {
+  await connectDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`🚖 Invio Ride API running on port ${PORT}`);
+  });
+}
+
+startServer();
