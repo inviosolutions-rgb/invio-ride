@@ -2,7 +2,7 @@ import { Router } from "express";
 import authRoutes from "./auth.routes";
 import rideRoutes from "./ride.routes";
 import driverRoutes from "./driver.routes";
-
+import firebaseRoutes from "./firebase.routes";
 const router = Router();
 
 router.get("/health", (_req, res) => {
