@@ -1,38 +1,8 @@
-import { Request, Response } from "express";
-import User from "../models/User";
+import { Router } from "express";
+import { registerUser } from "../controllers/auth.controller";
 
-export const registerUser = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  try {
-    const { name, phone, email } = req.body;
+const router = Router();
 
-    const existingUser = await User.findOne({ phone });
+router.post("/register", registerUser);
 
-    if (existingUser) {
-      res.status(400).json({
-        success: false,
-        message: "User already exists"
-      });
-      return;
-    }
-
-    const user = await User.create({
-      name,
-      phone,
-      email
-    });
-
-    res.status(201).json({
-      success: true,
-      message: "User registered successfully",
-      data: user
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Internal server error"
-    });
-  }
-};
+export default router;
