@@ -32,19 +32,26 @@ const driverSchema = new Schema(
       default: false
     },
     currentLocation: {
-      latitude: {
-        type: Number,
-        default: 0
+      type: {
+        type: String,
+        enum: ["Point"],
+        default: "Point"
       },
-      longitude: {
-        type: Number,
-        default: 0
+      coordinates: {
+        type: [Number],
+        default: [0, 0]
       }
+    },
+    rating: {
+      type: Number,
+      default: 5
     }
   },
   {
     timestamps: true
   }
 );
+
+driverSchema.index({ currentLocation: "2dsphere" });
 
 export default model("Driver", driverSchema);
