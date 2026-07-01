@@ -3,6 +3,7 @@ import authRoutes from "./auth.routes";
 import rideRoutes from "./ride.routes";
 import driverRoutes from "./driver.routes";
 import firebaseRoutes from "./firebase.routes";
+import driverStatusRoutes from "./driverStatus.routes";
 const router = Router();
 
 router.get("/health", (_req, res) => {
@@ -17,4 +18,5 @@ router.use("/auth", authRoutes);
 router.use("/rides", rideRoutes);
 router.use("/drivers", driverRoutes);
 router.use("/firebase", firebaseRoutes);
+router.use("/driver-status", driverStatusRoutes);
 export default router;
