@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "527761154655",
+    "project_id": "invio-ride",
+    "storage_bucket": "invio-ride.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527761154655:android:6d0a6f0fc75aac6fa2f1ea",
+        "android_client_info": {
+          "package_name": "com.example.customer_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjkq7nMIYLjxZ2GguD7KVbWqj27_kzMKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527761154655:android:dd5ecb86915645d6a2f1ea",
+        "android_client_info": {
+          "package_name": "com.inviosolutions.invioride"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjkq7nMIYLjxZ2GguD7KVbWqj27_kzMKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
