@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:customer_app/features/auth/otp_screen.dart';
-class LoginScreen extends StatelessWidget {
+import 'package:customer_app/services/auth_service.dart';
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController phoneController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context)  {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FFF8),
       appBar: AppBar(
@@ -39,15 +47,16 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 40),
 
             TextField(
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                prefixText: "+91 ",
-                hintText: "9876543210",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                ),
-              ),
-            ),
+  controller: phoneController,
+  keyboardType: TextInputType.phone,
+  decoration: InputDecoration(
+    prefixText: "+91 ",
+    hintText: "9876543210",
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(14),
+    ),
+  ),
+),
 
             const Spacer(),
 
@@ -55,14 +64,24 @@ class LoginScreen extends StatelessWidget {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const OtpScreen(
-        verificationId: '',
-      ),
-    ),
+               onPressed: () {
+  AuthService().sendOtp(
+    phoneNumber: "+91${phoneController.text.trim()}",
+    onCodeSent: (verificationId) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => OtpScreen(
+            verificationId: verificationId,
+          ),
+        ),
+      );
+    },
+    onError: (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error)),
+      );
+    },
   );
 },
                 style: ElevatedButton.styleFrom(
