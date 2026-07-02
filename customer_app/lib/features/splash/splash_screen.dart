@@ -58,21 +58,21 @@ class _SplashScreenState extends State<SplashScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                "assets/images/invio_logo.png",
-                width: 170,
-              ),
-              const SizedBox(height: 20),
+             Image.asset(
+  "assets/images/invio_logo.png",
+  width: 260,
+),
 
-              const Text(
-                "INVIO RIDE",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF2E7D32),
-                ),
-              ),
+const SizedBox(height: 30),
 
+const Text(
+  "Your Ride, Our Priority",
+  style: TextStyle(
+    fontSize: 18,
+    color: Colors.grey,
+    fontWeight: FontWeight.w500,
+  ),
+),
               const SizedBox(height: 10),
 
               const Text(
